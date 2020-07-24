@@ -1,7 +1,7 @@
 import $ from "jquery";
 import Popper from "popper.js";
 import "bootstrap";
-import "chart.js";
+import Chart from "chart.js";
 
 window.$ = $;
 window.jQuery = $;
