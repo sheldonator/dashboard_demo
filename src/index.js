@@ -112,8 +112,7 @@ if (ctxB !== undefined) {
       var clickedElementindex = activePoints[0]["_index"];
       var label = myBarChart.data.labels[clickedElementindex];
       var value = myBarChart.data.datasets[0].data[clickedElementindex];
-      var color =
-        myBarChart.data.datasets[0].backgroundColor[clickedElementindex];
+      var color = myBarChart.data.datasets[0].borderColor[clickedElementindex];
       showModal(label, value, color);
     }
   };
@@ -173,7 +172,7 @@ if (ctxH !== undefined) {
       var label = myHorizontalBar.data.labels[clickedElementindex];
       var value = myHorizontalBar.data.datasets[0].data[clickedElementindex];
       var color =
-        myHorizontalBar.data.datasets[0].backgroundColor[clickedElementindex];
+        myHorizontalBar.data.datasets[0].borderColor[clickedElementindex];
       showModal(label, value, color);
     }
   };
