@@ -8,91 +8,12 @@
 
   <body>
     <div id="app">
-      <ul class="nav nav-tabs" id="nav-tab" role="tablist">
-        <li class="nav-item">
-          <span
-            class="nav-link active"
-            id="pie-tab"
-            data-toggle="tab"
-            href="#nav-pie"
-            role="tab"
-            aria-controls="nav-pie"
-            aria-selected="true"
-            >Pie Chart</span
-          >
-        </li>
-        <li class="nav-item">
-          <span
-            class="nav-link"
-            id="bar-tab"
-            data-toggle="tab"
-            href="#nav-bar"
-            role="tab"
-            aria-controls="nav-bar"
-            aria-selected="false"
-            >Bar Chart</span
-          >
-        </li>
-        <li class="nav-item">
-          <span
-            class="nav-link"
-            id="horizontal-tab"
-            data-toggle="tab"
-            href="#nav-horizontal"
-            role="tab"
-            aria-controls="nav-horizontal"
-            aria-selected="false"
-            >Horizontal Bar Chart</span
-          >
-        </li>
-        <li class="nav-item">
-          <span
-            class="nav-link"
-            id="doughtnut-tab"
-            data-toggle="tab"
-            href="#nav-doughtnut"
-            role="tab"
-            aria-controls="nav-doughtnut"
-            aria-selected="false"
-            >Doughtnut Chart</span
-          >
-        </li>
-      </ul>
-
-      <div class="tab-content" id="nav-tabContent">
-        <div
-          class="tab-pane fade show active"
-          id="nav-pie"
-          role="tabpanel"
-          aria-labelledby="nav-pie-tab"
-        >
-          <canvas id="pieChart"></canvas>
-        </div>
-        <div
-          class="tab-pane fade"
-          id="nav-bar"
-          role="tabpanel"
-          aria-labelledby="nav-bar-tab"
-        >
-          <canvas id="barChart"></canvas>
-        </div>
-        <div
-          class="tab-pane fade"
-          id="nav-horizontal"
-          role="tabpanel"
-          aria-labelledby="nav-horizontal-tab"
-        >
-          <canvas id="horizontalBar"></canvas>
-        </div>
-        <div
-          class="tab-pane fade"
-          id="nav-doughtnut"
-          role="tabpanel"
-          aria-labelledby="nav-doughtnut-tab"
-        >
-          <canvas id="doughnutChart"></canvas>
-        </div>
+      <div id="bar">
+        <h1>Titles by Status</h1>
+        <canvas id="barChart"></canvas>
+        <p><strong>Total Titles:</strong> <span id="barTotal"></span></p>
       </div>
+      <canvas id="pieChart"></canvas>
 
       <!-- Modal -->
       <div
