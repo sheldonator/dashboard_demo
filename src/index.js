@@ -7,12 +7,9 @@ window.$ = $;
 window.jQuery = $;
 window.Popper = Popper;
 
-var showModal = function(label, value, color) {
+var showModal = function (label, value, color) {
   $("#modalTitle").text(label);
-  $("#modalTitle")
-    .parent()
-    .css("background-color", color)
-    .css("color", "#fff");
+  $("#modalTitle").parent().css("background-color", color).css("color", "#fff");
   $("#modalBody").text(value);
   $("#exampleModal").modal("show");
 };
@@ -49,7 +46,7 @@ if (ctxP !== undefined) {
     }
   });
 
-  document.getElementById("pieChart").onclick = function(evt) {
+  document.getElementById("pieChart").onclick = function (evt) {
     var activePoints = myPieChart.getElementsAtEvent(evt);
     if (activePoints.length > 0) {
       var clickedElementindex = activePoints[0]["_index"];
@@ -106,7 +103,7 @@ if (ctxB !== undefined) {
     }
   });
 
-  document.getElementById("barChart").onclick = function(evt) {
+  document.getElementById("barChart").onclick = function (evt) {
     var activePoints = myBarChart.getElementsAtEvent(evt);
     if (activePoints.length > 0) {
       var clickedElementindex = activePoints[0]["_index"];
@@ -165,7 +162,7 @@ if (ctxH !== undefined) {
     }
   });
 
-  document.getElementById("horizontalBar").onclick = function(evt) {
+  document.getElementById("horizontalBar").onclick = function (evt) {
     var activePoints = myHorizontalBar.getElementsAtEvent(evt);
     if (activePoints.length > 0) {
       var clickedElementindex = activePoints[0]["_index"];
@@ -210,7 +207,7 @@ if (ctxD !== undefined) {
     }
   });
 
-  document.getElementById("doughnutChart").onclick = function(evt) {
+  document.getElementById("doughnutChart").onclick = function (evt) {
     var activePoints = myDoughnutChart.getElementsAtEvent(evt);
     if (activePoints.length > 0) {
       var clickedElementindex = activePoints[0]["_index"];

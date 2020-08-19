@@ -1,0 +1,225 @@
+{
+  "id": 4935,
+  "name": "Perrin - Evaluation for Non-Evaluators: A Guide for Managers",
+  "smartStatus": 0,
+  "targetPubDate": "2050-01-01T00:00:00",
+  "resources": [
+    {
+      "name": "Amanda Simpson",
+      "tasks": [
+        {
+          "name": "Cloth Received",
+          "startDate": null,
+          "endDate": null,
+          "type": 0
+        },
+        {
+          "name": "Paperback Received",
+          "startDate": null,
+          "endDate": null,
+          "type": 0
+        },
+        {
+          "name": "PO Sent to Printer",
+          "startDate": null,
+          "endDate": null,
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "Candice Harman",
+      "tasks": [
+        {
+          "name": "Assign Artist (FC)",
+          "startDate": null,
+          "endDate": null,
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "Cassandra Seibel",
+      "tasks": [
+        {
+          "name": "Assign PE and Publish Schedule",
+          "startDate": null,
+          "endDate": null,
+          "type": 0
+        },
+        { "name": "P&L", "startDate": null, "endDate": null, "type": 0 }
+      ]
+    },
+    {
+      "name": "Helen Salmon",
+      "tasks": [
+        {
+          "name": "Complete Transmittal BPE",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        }
+      ]
+    },
+    {
+      "name": "Kaitlin Coghill",
+      "tasks": [
+        {
+          "name": "Permissions",
+          "startDate": null,
+          "endDate": null,
+          "type": 0
+        },
+        {
+          "name": "Post Publication",
+          "startDate": null,
+          "endDate": null,
+          "type": 0
+        },
+        {
+          "name": "Approved for Typesetting",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Author Copies Sent",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Author Feedback Questionnaire",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Cleared for print rights",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Electronic Rights Status Updated",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Manuscript approved for transmittal",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "No permissions identified at transmittal",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Permissions Complete",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Permissions log has been reviewed",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        }
+      ]
+    },
+    {
+      "name": "Kalie Koscielak",
+      "tasks": [
+        {
+          "name": "Draft Manuscript Receipt and Development",
+          "startDate": null,
+          "endDate": null,
+          "type": 0
+        },
+        {
+          "name": "Final Manuscript Received",
+          "startDate": null,
+          "endDate": null,
+          "type": 0
+        },
+        {
+          "name": "Transmittal",
+          "startDate": null,
+          "endDate": null,
+          "type": 0
+        },
+        {
+          "name": "Check Status of Contributor Agreements (if edited)",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Draft Permissions Log Received",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Final Permissions Log Received",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Hire Developmental Editor (if applicable)",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Propose FTN",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Request Applicable Advances/Royalties",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        { "name": "Reviews", "startDate": null, "endDate": null, "type": 1 },
+        {
+          "name": "Transmittal Prep",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Verify Receipt of Contributor Contracts (if edited)",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        }
+      ]
+    },
+    {
+      "name": "Shari Countryman",
+      "tasks": [
+        {
+          "name": "OBC Copy Posted",
+          "startDate": null,
+          "endDate": null,
+          "type": 0
+        },
+        {
+          "name": "OBC Copy Routed & Approved",
+          "startDate": null,
+          "endDate": null,
+          "type": 0
+        }
+      ]
+    }
+  ]
+}

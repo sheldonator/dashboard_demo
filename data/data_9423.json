@@ -1,0 +1,264 @@
+{
+  "id": 9423,
+  "name": "Blosser - Television and Social Change",
+  "smartStatus": 0,
+  "targetPubDate": "2050-01-01T00:00:00",
+  "resources": [
+    {
+      "name": "Amanda Simpson",
+      "tasks": [
+        {
+          "name": "CD & PO to Vendor",
+          "startDate": null,
+          "endDate": null,
+          "type": 0
+        },
+        {
+          "name": "Cloth Received",
+          "startDate": null,
+          "endDate": null,
+          "type": 0
+        },
+        {
+          "name": "Paperback Received",
+          "startDate": null,
+          "endDate": null,
+          "type": 0
+        },
+        {
+          "name": "PO Sent to Printer",
+          "startDate": null,
+          "endDate": null,
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "Candice Harman",
+      "tasks": [
+        {
+          "name": "Assign Artist (FC)",
+          "startDate": null,
+          "endDate": null,
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "Cassandra Seibel",
+      "tasks": [
+        {
+          "name": "Assign PE and Publish Schedule",
+          "startDate": null,
+          "endDate": null,
+          "type": 0
+        },
+        { "name": "P&L", "startDate": null, "endDate": null, "type": 0 }
+      ]
+    },
+    {
+      "name": "Gabrielle Piccininni",
+      "tasks": [
+        {
+          "name": "Bound-In Components Prep",
+          "startDate": null,
+          "endDate": null,
+          "type": 0
+        },
+        {
+          "name": "Draft Manuscript Receipt and Development",
+          "startDate": null,
+          "endDate": null,
+          "type": 0
+        },
+        {
+          "name": "Final Manuscript Received",
+          "startDate": null,
+          "endDate": null,
+          "type": 0
+        },
+        {
+          "name": "Permissions",
+          "startDate": null,
+          "endDate": null,
+          "type": 0
+        },
+        {
+          "name": "Post Publication",
+          "startDate": null,
+          "endDate": null,
+          "type": 0
+        },
+        {
+          "name": "Transmittal",
+          "startDate": null,
+          "endDate": null,
+          "type": 0
+        },
+        {
+          "name": "Approved for Typesetting",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Author Copies Sent",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Author Feedback Questionnaire",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        { "name": "Check BETA", "startDate": null, "endDate": null, "type": 1 },
+        { "name": "Check GOLD", "startDate": null, "endDate": null, "type": 1 },
+        {
+          "name": "Check Status of Contributor Agreements (if edited)",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Cleared for print rights",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Commission Work-for-Hire Content Preparers",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Draft Permissions Log Received",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Electronic Rights Status Updated",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Final Permissions Log Received",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Hire Developmental Editor (if applicable)",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Make Production Aware of Bound-In Component",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Manuscript approved for transmittal",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "No permissions identified at transmittal",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Permissions Complete",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Permissions log has been reviewed",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Propose FTN",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Receive Final Content",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Request Applicable Advances/Royalties",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        { "name": "Reviews", "startDate": null, "endDate": null, "type": 1 },
+        {
+          "name": "Transmit Final Content to Vendor",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Transmit to Production/Manufacturing",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Transmittal Prep",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        },
+        {
+          "name": "Verify Receipt of Contributor Contracts (if edited)",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        }
+      ]
+    },
+    {
+      "name": "Lily Norton",
+      "tasks": [
+        {
+          "name": "Complete Transmittal BPE",
+          "startDate": null,
+          "endDate": null,
+          "type": 1
+        }
+      ]
+    },
+    {
+      "name": "Staci Wittek",
+      "tasks": [
+        {
+          "name": "OBC Copy Posted",
+          "startDate": null,
+          "endDate": null,
+          "type": 0
+        },
+        {
+          "name": "OBC Copy Routed & Approved",
+          "startDate": null,
+          "endDate": null,
+          "type": 0
+        }
+      ]
+    }
+  ]
+}
