@@ -8,8 +8,9 @@ window.jQuery = $;
 window.Popper = Popper;
 
 //initialise
-$("#pieChart").hide();
-GetInitialData();
+$(document).ready(function () {
+  GetInitialData();
+});
 
 //bar
 function initialiseBar(barData) {
@@ -70,14 +71,8 @@ function initialiseBar(barData) {
         ]
       },
       options: {
-        scales: {
-          yAxes: [
-            {
-              ticks: {
-                beginAtZero: true
-              }
-            }
-          ]
+        legend: {
+          display: false
         }
       }
     });
