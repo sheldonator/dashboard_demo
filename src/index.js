@@ -2,6 +2,7 @@ import $ from "jquery";
 import Popper from "popper.js";
 import "bootstrap";
 import Chart from "chart.js";
+import tinycolor from "tinycolor2";
 
 window.$ = $;
 window.jQuery = $;
@@ -93,81 +94,94 @@ function initialiseBar(barData) {
 }
 
 //pie
-var ctxP = document.getElementById("pieChart")?.getContext("2d");
-if (ctxP !== undefined) {
-  var myPieChart = new Chart(ctxP, {
-    type: "pie",
-    data: {
-      labels: ["Red", "Green", "Yellow", "Grey", "Dark Grey"],
-      datasets: [
-        {
-          data: [300, 50, 100, 40, 120],
-          backgroundColor: [
-            "#F7464A",
-            "#46BFBD",
-            "#FDB45C",
-            "#949FB1",
-            "#4D5360"
-          ],
-          hoverBackgroundColor: [
-            "#FF5A5E",
-            "#5AD3D1",
-            "#FFC870",
-            "#A8B3C5",
-            "#616774"
-          ]
+function initialisePie(pieData) {
+  var ctxP = document.getElementById("pieChart")?.getContext("2d");
+  if (ctxP !== undefined) {
+    var colors = pieData.resources.map((obj) => {
+      return GetRandomColor(obj, pieData.resources.indexOf(obj));
+    });
+    var myPieChart = new Chart(ctxP, {
+      type: "pie",
+      data: {
+        labels: pieData.resources.map((obj) => {
+          return obj.name;
+        }),
+        datasets: [
+          {
+            data: pieData.resources.map((obj) => {
+              return obj.tasks.length;
+            }),
+            backgroundColor: colors,
+            hoverBackgroundColor: colors.map((c) => {
+              return tinycolor(c).lighten().toHexString();
+            })
+          }
+        ]
+      },
+      options: {
+        legend: {
+          position: "right"
         }
-      ]
-    },
-    options: {
-      responsive: true
-    }
-  });
+      }
+    });
 
-  document.getElementById("pieChart").onclick = function (evt) {
-    var activePoints = myPieChart.getElementsAtEvent(evt);
-    if (activePoints.length > 0) {
-      var clickedElementindex = activePoints[0]["_index"];
-      var label = myPieChart.data.labels[clickedElementindex];
-      //var value = myPieChart.data.datasets[0].data[clickedElementindex];
-      var color =
-        myPieChart.data.datasets[0].backgroundColor[clickedElementindex];
-      //showModal(label, color);
-    }
-  };
+    document.getElementById("pieChart").onclick = function (evt) {
+      var activePoints = myPieChart.getElementsAtEvent(evt);
+      if (activePoints.length > 0) {
+        var clickedElementindex = activePoints[0]["_index"];
+        var label = myPieChart.data.labels[clickedElementindex];
+        var color =
+          myPieChart.data.datasets[0].backgroundColor[clickedElementindex];
+        GetTaskData(label, color);
+      }
+    };
+  }
+
+  $("#pieTotal").html(
+    pieData.resources.reduce(function (total, r) {
+      return total + r.tasks.length;
+    }, 0)
+  );
+}
+
+function GetRandomColor(obj, i) {
+  var defaultColors = ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"];
+  if (defaultColors.length > i) return defaultColors[i];
+  return tinycolor.random().toHexString();
 }
 
 //data
-//window.basicDataUrl = "/data/basic";
-window.basicDataUrl = "/data/basicdata.json";
+function GetBasicDataUrl() {
+  //return "/data/basic";
+  return "/data/basicdata.json";
+}
+
+function GetTitleDataUrl(id) {
+  //return "/data/" + id;
+  return "/data/data_" + id + ".json";
+}
 
 function GetInitialData() {
-  $.getJSON(window.basicDataUrl, function (d) {
+  $.getJSON(GetBasicDataUrl(), function (d) {
     initialiseBar(d);
   });
 }
 
 function GetStatusData(status, label, color) {
-  $.getJSON(window.basicDataUrl, function (d) {
+  $.getJSON(GetBasicDataUrl(), function (d) {
     var data = d.filter((obj) => {
       return obj.smartStatus === status;
     });
     if (data.length === 0) {
       $("#modalBody").html("<p>No titles for this status</p>");
     } else {
-      var html =
-        "<div><table><tr><th>Title</th><th>Target Pub Date</th></tr><tbody>";
+      var table = GenerateTable();
       data.forEach((element) => {
-        var date = new Date(element.targetPubDate);
-        html +=
-          "<tr><td>" +
-          element.name +
-          "</td><td>" +
-          date.toLocaleDateString("en-GB") +
-          "</td></tr>";
+        var row = GenerateTableRow(element);
+        table.find("tbody").append(row);
       });
-      html += "</tbody></table></div>";
-      $("#modalBody").html(html);
+
+      $("#modalBody").html(table);
     }
     $("#modalTitle").text(label);
     $("#modalTitle")
@@ -178,8 +192,63 @@ function GetStatusData(status, label, color) {
   });
 }
 
-// function getData(id, data) {
-//   $.getJSON(`/data/data_${id}.json`, function (d) {
-//     data = d;
-//   });
-// }
+function GenerateTable() {
+  var table = document.createElement("table");
+  var headerRow = document.createElement("tr");
+  var titleHeader = document.createElement("th");
+  titleHeader.innerText = "Title";
+  var dateHeader = document.createElement("th");
+  dateHeader.innerText = "Target Pub Date";
+  headerRow.appendChild(titleHeader);
+  headerRow.appendChild(dateHeader);
+  table.appendChild(headerRow);
+  table.appendChild(document.createElement("tbody"));
+
+  return $(table);
+}
+
+function GenerateTableRow(element) {
+  var row = $(document.createElement("tr"));
+  var date = new Date(element.targetPubDate);
+  var titleCell = $(document.createElement("td"));
+  titleCell.addClass("title");
+  titleCell.text(element.name);
+  titleCell.on("click", function () {
+    GetTitleData(element.id);
+  });
+  var dateCell = document.createElement("td");
+  dateCell.innerText = date.toLocaleDateString("en-GB");
+  row.append(titleCell);
+  row.append(dateCell);
+
+  return row;
+}
+
+function GetTitleData(id) {
+  $.getJSON(GetTitleDataUrl(id), function (d) {
+    initialisePie(d);
+    $("#bar").hide();
+    $("#pieId").val(id);
+    $("#pie").show();
+    $("#exampleModal").modal("hide");
+  });
+}
+
+function GetTaskData(resource, color) {
+  $.getJSON(GetTitleDataUrl($("#pieId").val()), function (d) {
+    var data = d.resources.find((obj) => {
+      return obj.name === resource;
+    }).tasks;
+    if (data.length === 0) {
+      $("#modalBody").html("<p>No tasks for this resource</p>");
+    } else {
+      $("#modalBody").html("<p>TASKS!</p>");
+    }
+    $("#modalTitle").text(resource);
+    $("#modalTitle")
+      .parent()
+      .css("background-color", color)
+      .css("color", "#fff");
+    $("#exampleModal").modal("show");
+  });
+}

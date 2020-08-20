@@ -13,7 +13,12 @@
         <canvas id="barChart"></canvas>
         <p><strong>Total Titles:</strong> <span id="barTotal"></span></p>
       </div>
-      <canvas id="pieChart" style="display: none;"></canvas>
+      <div id="pie" style="display: none;">
+        <h1>Tasks by Resource</h1>
+        <input type="hidden" id="pieId" />
+        <canvas id="pieChart"></canvas>
+        <p><strong>Total Tasks:</strong> <span id="pieTotal"></span></p>
+      </div>
 
       <!-- Modal -->
       <div
@@ -24,7 +29,7 @@
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog modal-notify" role="document">
+        <div class="modal-dialog modal-notify modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="modalTitle">Modal title</h5>

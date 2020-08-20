@@ -4,6 +4,14 @@ body {
   font-family: sans-serif;
 }
 
-#bar h1 {
+h1 {
   text-align: center;
+}
+
+td.title {
+  cursor: pointer;
+}
+
+td.title:hover {
+  text-decoration: underline;
 }
