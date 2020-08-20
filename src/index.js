@@ -11,6 +11,10 @@ window.Popper = Popper;
 //initialise
 $(document).ready(function () {
   GetInitialData();
+  $("#back").on("click", function () {
+    $("#pie").hide();
+    $("#bar").show();
+  });
 });
 
 //bar
@@ -175,9 +179,9 @@ function GetStatusData(status, label, color) {
     if (data.length === 0) {
       $("#modalBody").html("<p>No titles for this status</p>");
     } else {
-      var table = GenerateTable();
+      var table = GenerateTable(["Title", "Target Pub Date"]);
       data.forEach((element) => {
-        var row = GenerateTableRow(element);
+        var row = GenerateTitleTableRow(element);
         table.find("tbody").append(row);
       });
 
@@ -192,22 +196,21 @@ function GetStatusData(status, label, color) {
   });
 }
 
-function GenerateTable() {
+function GenerateTable(headers) {
   var table = document.createElement("table");
   var headerRow = document.createElement("tr");
-  var titleHeader = document.createElement("th");
-  titleHeader.innerText = "Title";
-  var dateHeader = document.createElement("th");
-  dateHeader.innerText = "Target Pub Date";
-  headerRow.appendChild(titleHeader);
-  headerRow.appendChild(dateHeader);
+  headers.forEach((header) => {
+    var headerCell = document.createElement("th");
+    headerCell.innerText = header;
+    headerRow.appendChild(headerCell);
+  });
   table.appendChild(headerRow);
   table.appendChild(document.createElement("tbody"));
 
   return $(table);
 }
 
-function GenerateTableRow(element) {
+function GenerateTitleTableRow(element) {
   var row = $(document.createElement("tr"));
   var date = new Date(element.targetPubDate);
   var titleCell = $(document.createElement("td"));
@@ -242,7 +245,13 @@ function GetTaskData(resource, color) {
     if (data.length === 0) {
       $("#modalBody").html("<p>No tasks for this resource</p>");
     } else {
-      $("#modalBody").html("<p>TASKS!</p>");
+      var table = GenerateTable(["Task", "Start Date", "End Date", "Type"]);
+      data.forEach((element) => {
+        var row = GenerateTaskTableRow(element);
+        table.find("tbody").append(row);
+      });
+
+      $("#modalBody").html(table);
     }
     $("#modalTitle").text(resource);
     $("#modalTitle")
@@ -251,4 +260,28 @@ function GetTaskData(resource, color) {
       .css("color", "#fff");
     $("#exampleModal").modal("show");
   });
+}
+
+function GenerateTaskTableRow(element) {
+  var row = $(document.createElement("tr"));
+
+  var taskCell = $(document.createElement("td"));
+  taskCell.text(element.name);
+  row.append(taskCell);
+
+  var startDate = new Date(element.startDate);
+  var startDateCell = document.createElement("td");
+  startDateCell.innerText = startDate.toLocaleDateString("en-GB");
+  row.append(startDateCell);
+
+  var endDate = new Date(element.startDate);
+  var endDateCell = document.createElement("td");
+  endDateCell.innerText = endDate.toLocaleDateString("en-GB");
+  row.append(endDateCell);
+
+  var typeCell = document.createElement("td");
+  typeCell.innerText = element.type === 0 ? "Phase" : "To Do";
+  row.append(typeCell);
+
+  return row;
 }

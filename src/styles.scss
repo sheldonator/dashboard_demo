@@ -8,10 +8,18 @@ h1 {
   text-align: center;
 }
 
-td.title {
+td, th {
+  padding: 0px 8px;
+}
+
+td.title, #back {
   cursor: pointer;
 }
 
-td.title:hover {
+td.title:hover, #back:hover {
   text-decoration: underline;
+}
+
+#back, p {
+  margin-left: 20px;
 }
