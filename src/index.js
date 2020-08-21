@@ -11,10 +11,6 @@ window.Popper = Popper;
 //initialise
 $(document).ready(function () {
   GetInitialData();
-  $("#back").on("click", function () {
-    $("#pie").hide();
-    $("#bar").show();
-  });
 });
 
 //bar
@@ -139,6 +135,12 @@ function initialisePie(pieData) {
         GetTaskData(label, color);
       }
     };
+
+    $("#back").on("click", function () {
+      myPieChart.destroy();
+      $("#pie").hide();
+      $("#bar").show();
+    });
   }
 
   $("#pieTotal").html(
