@@ -221,6 +221,7 @@ function GenerateTitleTableRow(element) {
   });
   var dateCell = document.createElement("td");
   dateCell.innerText = date.toLocaleDateString("en-GB");
+  dateCell.className = "date";
   row.append(titleCell);
   row.append(dateCell);
 
@@ -269,14 +270,22 @@ function GenerateTaskTableRow(element) {
   taskCell.text(element.name);
   row.append(taskCell);
 
-  var startDate = new Date(element.startDate);
+  var startDate =
+    element.startDate == null
+      ? "-"
+      : new Date(element.startDate).toLocaleDateString("en-GB");
   var startDateCell = document.createElement("td");
-  startDateCell.innerText = startDate.toLocaleDateString("en-GB");
+  startDateCell.innerText = startDate;
+  startDateCell.className = "date";
   row.append(startDateCell);
 
-  var endDate = new Date(element.startDate);
+  var endDate =
+    element.endDate == null
+      ? "-"
+      : new Date(element.endDate).toLocaleDateString("en-GB");
   var endDateCell = document.createElement("td");
-  endDateCell.innerText = endDate.toLocaleDateString("en-GB");
+  endDateCell.innerText = endDate;
+  endDateCell.className = "date";
   row.append(endDateCell);
 
   var typeCell = document.createElement("td");
