@@ -90,6 +90,8 @@ function initialiseBar(barData) {
         GetStatusData(clickedElementindex, label, color);
       }
     };
+
+    InitialiseForm(myBarChart);
   }
 }
 
@@ -162,6 +164,12 @@ function GetBasicDataUrl() {
   return "/data/basicdata.json";
 }
 
+function GetMyDataUrl(name) {
+  name = name.replace(" ", "");
+  //return "/data/tasks/" + name;
+  return "/data/data_" + name + ".json";
+}
+
 function GetTitleDataUrl(id) {
   //return "/data/" + id;
   return "/data/data_" + id + ".json";
@@ -174,7 +182,11 @@ function GetInitialData() {
 }
 
 function GetStatusData(status, label, color) {
-  $.getJSON(GetBasicDataUrl(), function (d) {
+  var url =
+    $("#mineOnly").val() === "true"
+      ? GetMyDataUrl($("#whoAmI").val())
+      : GetBasicDataUrl();
+  $.getJSON(url, function (d) {
     var data = d.filter((obj) => {
       return obj.smartStatus === status;
     });
@@ -216,11 +228,15 @@ function GenerateTitleTableRow(element) {
   var row = $(document.createElement("tr"));
   var date = new Date(element.targetPubDate);
   var titleCell = $(document.createElement("td"));
-  titleCell.addClass("title");
   titleCell.text(element.name);
-  titleCell.on("click", function () {
-    GetTitleData(element.id);
-  });
+
+  if ($("#mineOnly").val() !== "true") {
+    titleCell.addClass("title");
+    titleCell.on("click", function () {
+      GetTitleData(element.id);
+    });
+  }
+
   var dateCell = document.createElement("td");
   dateCell.innerText = date.toLocaleDateString("en-GB");
   dateCell.className = "date";
@@ -295,4 +311,71 @@ function GenerateTaskTableRow(element) {
   row.append(typeCell);
 
   return row;
+}
+
+function InitialiseForm(barChart) {
+  $("#justMyStuff").on("click", function () {
+    barChart.destroy();
+    var name = $("#whoAmI").val();
+    GetMyData(name);
+    $("#myForm").hide();
+    $("#allForm").show();
+    $("#mineOnly").val(true);
+  });
+  $("#allStuff").on("click", function () {
+    barChart.destroy();
+    GetInitialData();
+    $("#whoAmI").val("");
+    $("#myForm").show();
+    $("#allForm").hide();
+    $("#mineOnly").val(false);
+  });
+  $("#myTasks").on("click", function () {
+    IntitaliseAccordion();
+    $("#bar").hide();
+    $("#myTasksList").show();
+    $("#taskback").on("click", function () {
+      $("#myTasksList").hide();
+      $("#bar").show();
+    });
+  });
+}
+
+function GetMyData(name) {
+  $.getJSON(GetMyDataUrl(name), function (d) {
+    initialiseBar(d);
+  });
+}
+
+function IntitaliseAccordion() {
+  var name = $("#whoAmI").val();
+  $.getJSON(GetMyDataUrl(name), function (d) {
+    d.forEach((title) => {
+      var id = "heading" + title.id;
+      var targetId = "collapse" + title.id;
+      var html =
+        '<div class="card">' +
+        '<div class="card-header" id="' +
+        id +
+        '">' +
+        '<h2 class="mb-0">' +
+        '<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#' +
+        targetId +
+        '">' +
+        title.name +
+        "</button></h2></div>" +
+        '<div id="' +
+        targetId +
+        '" class="collapse" data-parent="#accordionExample">' +
+        '<div class="card-body"><ul>';
+
+      title.resources[0].tasks.forEach((task) => {
+        html += "<li>" + task.name + "</li>";
+      });
+
+      html += "</ul></div></div></div>";
+
+      $("#accordionExample").append(html);
+    });
+  });
 }

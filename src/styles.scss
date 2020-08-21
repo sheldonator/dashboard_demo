@@ -12,18 +12,31 @@ td, th {
   padding: 0px 8px;
 }
 
-td.title, #back {
+td.title, .form {
   cursor: pointer;
 }
 
-td.title:hover, #back:hover {
+td.title:hover, p.form:hover {
   text-decoration: underline;
 }
 
-#back, p {
+p, .form {
   margin-left: 20px;
+}
+
+.accordion {
+  margin-top: 10px;
 }
 
 td.date {
   text-align: center;
+}
+
+canvas {
+  max-height: 75vh;
+  max-width: 100vh;
+}
+
+.chart, #myTasksList {
+  padding: 10px;
 }
